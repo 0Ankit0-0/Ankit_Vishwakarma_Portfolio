@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ExternalLink, Github } from "lucide-react";
+import {
+  fadeUp, fadeIn, staggerContainer, smoothTransition,
+  modalOverlay, modalContent,
+} from "@/lib/animations";
 
 interface Project {
   id: number;
@@ -65,16 +69,25 @@ const rarityColor: Record<string, string> = {
   Rare: "text-muted-foreground",
 };
 
+const cardHover = {
+  rest: { y: 0, boxShadow: "0 0 0 hsl(43 50% 50% / 0)" },
+  hover: {
+    y: -3,
+    boxShadow: "0 0 20px hsl(43 50% 50% / 0.08)",
+    transition: { duration: 0.3, ease: "easeOut" as const },
+  },
+};
+
 const ProjectCard = ({ project, onClick }: { project: Project; onClick: () => void }) => (
   <motion.button
-    initial={{ opacity: 0, y: 16 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.4 }}
-    whileHover={{ y: -2 }}
+    variants={fadeUp}
+    whileHover="hover"
+    initial="rest"
+    animate="rest"
     onClick={onClick}
-    className="w-full text-left border border-border bg-card p-6 rounded-sm transition-shadow duration-400 glow-gold-hover group"
+    className="w-full text-left border border-border bg-card p-6 rounded-sm group"
   >
+    <motion.div variants={cardHover} className="contents" />
     <div className="flex justify-between items-start mb-1">
       <h3 className="font-heading text-base text-foreground group-hover:text-gold transition-colors duration-300 tracking-wide">
         {project.name}
@@ -97,18 +110,20 @@ const ProjectCard = ({ project, onClick }: { project: Project; onClick: () => vo
 
 const ProjectModal = ({ project, onClose }: { project: Project; onClose: () => void }) => (
   <motion.div
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    exit={{ opacity: 0 }}
+    variants={modalOverlay}
+    initial="hidden"
+    animate="visible"
+    exit="exit"
     transition={{ duration: 0.2 }}
     className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 bg-background/85 backdrop-blur-sm"
     onClick={onClose}
   >
     <motion.div
-      initial={{ scale: 0.97, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      exit={{ scale: 0.97, opacity: 0 }}
-      transition={{ duration: 0.25 }}
+      variants={modalContent}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
       onClick={(e) => e.stopPropagation()}
       className="bg-card border border-border p-8 rounded-sm max-w-lg w-full relative"
     >
@@ -171,10 +186,11 @@ const ProjectsSection = () => {
     <section id="projects" className="py-24 md:py-32 px-6 md:px-8">
       <div className="max-w-3xl mx-auto">
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          variants={fadeIn}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          transition={smoothTransition()}
           className="mb-16"
         >
           <h2 className="text-2xl md:text-3xl font-heading text-foreground tracking-wider">
@@ -183,11 +199,17 @@ const ProjectsSection = () => {
           <div className="mt-4 w-8 h-[1px] bg-gold-dim" />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-4">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-40px" }}
+          className="grid md:grid-cols-2 gap-4"
+        >
           {projects.map((p) => (
             <ProjectCard key={p.id} project={p} onClick={() => setSelected(p)} />
           ))}
-        </div>
+        </motion.div>
       </div>
 
       <AnimatePresence>
