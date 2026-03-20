@@ -10,28 +10,28 @@ const links = [
 
 const ContactSection = () => {
   return (
-    <section id="contact" className="py-24 md:py-32 px-4">
-      <div className="max-w-md mx-auto text-center">
+    <section id="contact" className="py-24 md:py-32 px-6 md:px-8">
+      <div className="max-w-md mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl font-heading text-foreground tracking-wider">
+          <h2 className="text-2xl md:text-3xl font-heading text-foreground tracking-wider text-center">
             Summon
           </h2>
-          <div className="mt-3 w-16 h-[1px] bg-gold mx-auto opacity-50" />
-          <p className="mt-6 font-body text-muted-foreground italic text-lg">
+          <div className="mt-4 w-8 h-[1px] bg-gold-dim mx-auto" />
+          <p className="mt-6 font-body text-muted-foreground italic text-base text-center leading-relaxed">
             Leave a sign, and I shall answer the call.
           </p>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
           className="flex justify-center gap-8 mt-12"
         >
           {links.map(({ icon: Icon, label, href }) => (
@@ -42,10 +42,10 @@ const ContactSection = () => {
               rel="noopener noreferrer"
               className="group flex flex-col items-center gap-2"
             >
-              <div className="p-3 border border-gold-dim/30 rounded transition-all duration-300 group-hover:border-gold group-hover:glow-gold">
-                <Icon size={20} className="text-muted-foreground group-hover:text-gold transition-colors duration-300" />
+              <div className="p-3 border border-border rounded-sm transition-colors duration-300 group-hover:border-gold-dim">
+                <Icon size={18} className="text-muted-foreground group-hover:text-gold transition-colors duration-300" />
               </div>
-              <span className="text-xs font-heading tracking-[0.2em] text-muted-foreground group-hover:text-gold transition-colors">
+              <span className="text-[10px] font-heading tracking-[0.15em] text-muted-foreground group-hover:text-foreground transition-colors uppercase">
                 {label}
               </span>
             </a>
@@ -56,10 +56,10 @@ const ContactSection = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-24 pt-8 border-t border-gold-dim/10"
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-24 pt-8 border-t border-border/30"
         >
-          <p className="text-xs font-heading tracking-[0.3em] text-muted-foreground uppercase">
+          <p className="text-[10px] font-heading tracking-[0.2em] text-muted-foreground uppercase text-center">
             Crafted in the Lands Between
           </p>
         </motion.div>

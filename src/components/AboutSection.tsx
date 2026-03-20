@@ -9,30 +9,30 @@ interface StatBarProps {
 
 const StatBar = ({ label, sublabel, value, delay }: StatBarProps) => (
   <motion.div
-    initial={{ opacity: 0, x: -20 }}
+    initial={{ opacity: 0, x: -12 }}
     whileInView={{ opacity: 1, x: 0 }}
     viewport={{ once: true }}
-    transition={{ duration: 0.6, delay }}
-    className="space-y-2"
+    transition={{ duration: 0.5, delay }}
+    className="py-3"
   >
-    <div className="flex justify-between items-baseline">
-      <div>
-        <span className="font-heading text-sm tracking-[0.2em] text-gold uppercase">
+    <div className="flex justify-between items-baseline mb-2">
+      <div className="flex items-baseline gap-3">
+        <span className="font-heading text-xs tracking-[0.15em] text-foreground uppercase">
           {label}
         </span>
-        <span className="ml-3 text-sm text-muted-foreground font-body">
+        <span className="text-sm text-muted-foreground font-body">
           {sublabel}
         </span>
       </div>
-      <span className="font-heading text-sm text-gold-dim">{value}</span>
+      <span className="font-heading text-xs text-muted-foreground tabular-nums">{value}</span>
     </div>
-    <div className="h-[2px] bg-secondary rounded-full overflow-hidden">
+    <div className="h-[1px] bg-secondary overflow-hidden">
       <motion.div
         initial={{ width: 0 }}
         whileInView={{ width: `${value}%` }}
         viewport={{ once: true }}
-        transition={{ duration: 1.2, delay: delay + 0.3, ease: "easeOut" }}
-        className="h-full bg-gradient-to-r from-gold-dim to-gold"
+        transition={{ duration: 1, delay: delay + 0.2, ease: "easeOut" }}
+        className="h-full bg-gold-dim"
       />
     </div>
   </motion.div>
@@ -49,29 +49,29 @@ const stats = [
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-24 md:py-32 px-4">
-      <div className="max-w-2xl mx-auto">
+    <section id="about" className="py-24 md:py-32 px-6 md:px-8">
+      <div className="max-w-xl mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.6 }}
+          className="mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-heading text-foreground tracking-wider">
+          <h2 className="text-2xl md:text-3xl font-heading text-foreground tracking-wider">
             Attributes
           </h2>
-          <div className="mt-3 w-16 h-[1px] bg-gold mx-auto opacity-50" />
+          <div className="mt-4 w-8 h-[1px] bg-gold-dim" />
         </motion.div>
 
-        <div className="space-y-6">
+        <div className="divide-y divide-border/30">
           {stats.map((stat, i) => (
             <StatBar
               key={stat.label}
               label={stat.label}
               sublabel={stat.sublabel}
               value={stat.value}
-              delay={i * 0.1}
+              delay={i * 0.08}
             />
           ))}
         </div>
@@ -80,8 +80,8 @@ const AboutSection = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="mt-16 text-center text-lg font-body text-muted-foreground italic leading-relaxed max-w-md mx-auto"
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-16 text-base font-body text-muted-foreground italic leading-relaxed"
         >
           A wanderer of code, forging systems in the fires of logic and deploying them across the Lands Between.
         </motion.p>
