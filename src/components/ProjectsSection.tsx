@@ -74,7 +74,7 @@ const cardHover = {
   hover: {
     y: -3,
     boxShadow: "0 0 20px hsl(43 50% 50% / 0.08)",
-    transition: { duration: 0.3, ease: "easeOut" },
+    transition: { duration: 0.3, ease: "easeOut" as const },
   },
 };
 
