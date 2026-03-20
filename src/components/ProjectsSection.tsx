@@ -1,10 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ExternalLink, Github } from "lucide-react";
-import {
-  fadeUp, fadeIn, staggerContainer, smoothTransition,
-  modalOverlay, modalContent,
-} from "@/lib/animations";
 
 interface Project {
   id: number;
@@ -69,38 +65,29 @@ const rarityColor: Record<string, string> = {
   Rare: "text-muted-foreground",
 };
 
-const cardHover = {
-  rest: { y: 0, boxShadow: "0 0 0 hsl(43 50% 50% / 0)" },
-  hover: {
-    y: -3,
-    boxShadow: "0 0 20px hsl(43 50% 50% / 0.08)",
-    transition: { duration: 0.3, ease: "easeOut" as const },
-  },
-};
-
 const ProjectCard = ({ project, onClick }: { project: Project; onClick: () => void }) => (
   <motion.button
-    variants={fadeUp}
-    whileHover="hover"
-    initial="rest"
-    animate="rest"
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.5 }}
+    whileHover={{ scale: 1.02 }}
     onClick={onClick}
-    className="w-full text-left border border-border bg-card p-6 rounded-sm group"
+    className="w-full text-left border border-gold-dim/30 bg-card p-6 rounded transition-all duration-300 glow-gold-hover group"
   >
-    <motion.div variants={cardHover} className="contents" />
-    <div className="flex justify-between items-start mb-1">
-      <h3 className="font-heading text-base text-foreground group-hover:text-gold transition-colors duration-300 tracking-wide">
+    <div className="flex justify-between items-start mb-2">
+      <h3 className="font-heading text-lg text-foreground group-hover:text-gold transition-colors tracking-wide">
         {project.name}
       </h3>
-      <span className={`font-heading text-[10px] tracking-[0.15em] uppercase ${rarityColor[project.rarity]}`}>
+      <span className={`font-heading text-xs tracking-wider ${rarityColor[project.rarity]}`}>
         {project.rarity}
       </span>
     </div>
     <p className="text-sm text-muted-foreground font-body mb-4">{project.type}</p>
-    <p className="text-sm text-foreground/60 font-body leading-relaxed">{project.description}</p>
+    <p className="text-sm text-foreground/70 font-body leading-relaxed">{project.description}</p>
     <div className="flex flex-wrap gap-2 mt-4">
       {project.tech.map((t) => (
-        <span key={t} className="text-[10px] font-heading tracking-[0.1em] text-muted-foreground border border-border px-2 py-0.5 rounded-sm uppercase">
+        <span key={t} className="text-xs font-heading tracking-wider text-gold-dim border border-gold-dim/20 px-2 py-0.5 rounded-sm">
           {t}
         </span>
       ))}
@@ -110,68 +97,65 @@ const ProjectCard = ({ project, onClick }: { project: Project; onClick: () => vo
 
 const ProjectModal = ({ project, onClose }: { project: Project; onClose: () => void }) => (
   <motion.div
-    variants={modalOverlay}
-    initial="hidden"
-    animate="visible"
-    exit="exit"
-    transition={{ duration: 0.2 }}
-    className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 bg-background/85 backdrop-blur-sm"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-background/80 backdrop-blur-sm"
     onClick={onClose}
   >
     <motion.div
-      variants={modalContent}
-      initial="hidden"
-      animate="visible"
-      exit="exit"
-      transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
+      initial={{ scale: 0.95, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      exit={{ scale: 0.95, opacity: 0 }}
+      transition={{ duration: 0.3 }}
       onClick={(e) => e.stopPropagation()}
-      className="bg-card border border-border p-8 rounded-sm max-w-lg w-full relative"
+      className="bg-card border border-gold-dim/40 p-8 rounded max-w-lg w-full relative glow-gold"
     >
-      <button onClick={onClose} className="absolute top-6 right-6 text-muted-foreground hover:text-foreground transition-colors">
-        <X size={16} />
+      <button onClick={onClose} className="absolute top-4 right-4 text-muted-foreground hover:text-gold transition-colors">
+        <X size={18} />
       </button>
 
-      <p className="font-heading text-[10px] tracking-[0.25em] text-muted-foreground uppercase mb-4">
-        Inspect Item
+      <p className="font-heading text-xs tracking-[0.3em] text-gold-dim uppercase mb-1">
+        — Inspect Item —
       </p>
 
-      <h3 className="font-heading text-xl text-foreground tracking-wider mb-1">
+      <h3 className="font-heading text-2xl text-foreground tracking-wider mb-1">
         {project.name}
       </h3>
 
       <div className="flex items-center gap-3 mb-6">
-        <span className={`font-heading text-[10px] tracking-[0.15em] uppercase ${rarityColor[project.rarity]}`}>
+        <span className={`font-heading text-xs tracking-wider ${rarityColor[project.rarity]}`}>
           {project.rarity}
         </span>
-        <span className="text-border">·</span>
-        <span className="text-muted-foreground text-sm font-body">{project.type}</span>
+        <span className="text-muted-foreground text-xs">•</span>
+        <span className="text-muted-foreground text-xs font-body">{project.type}</span>
       </div>
 
       <p className="font-body text-foreground/80 leading-relaxed mb-4">
         {project.description}
       </p>
 
-      <p className="font-body italic text-muted-foreground text-sm leading-relaxed mb-6 border-l border-border pl-4">
+      <p className="font-body italic text-muted-foreground text-sm leading-relaxed mb-6 border-l border-gold-dim/30 pl-4">
         {project.lore}
       </p>
 
-      <div className="flex flex-wrap gap-2 mb-8">
+      <div className="flex flex-wrap gap-2 mb-6">
         {project.tech.map((t) => (
-          <span key={t} className="text-[10px] font-heading tracking-[0.1em] text-gold-dim border border-border px-2 py-1 rounded-sm uppercase">
+          <span key={t} className="text-xs font-heading tracking-wider text-gold border border-gold-dim/30 px-2 py-1 rounded-sm">
             {t}
           </span>
         ))}
       </div>
 
-      <div className="flex gap-6">
+      <div className="flex gap-4">
         {project.github && (
-          <a href={project.github} className="flex items-center gap-2 text-sm font-heading tracking-wider text-muted-foreground hover:text-foreground transition-colors">
-            <Github size={14} /> Source
+          <a href={project.github} className="flex items-center gap-2 text-sm font-heading tracking-wider text-muted-foreground hover:text-gold transition-colors">
+            <Github size={16} /> Source
           </a>
         )}
         {project.live && (
-          <a href={project.live} className="flex items-center gap-2 text-sm font-heading tracking-wider text-muted-foreground hover:text-foreground transition-colors">
-            <ExternalLink size={14} /> Live
+          <a href={project.live} className="flex items-center gap-2 text-sm font-heading tracking-wider text-muted-foreground hover:text-gold transition-colors">
+            <ExternalLink size={16} /> Live
           </a>
         )}
       </div>
@@ -183,33 +167,26 @@ const ProjectsSection = () => {
   const [selected, setSelected] = useState<Project | null>(null);
 
   return (
-    <section id="projects" className="py-24 md:py-32 px-6 md:px-8">
-      <div className="max-w-3xl mx-auto">
+    <section id="projects" className="py-24 md:py-32 px-4">
+      <div className="max-w-4xl mx-auto">
         <motion.div
-          variants={fadeIn}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          transition={smoothTransition()}
-          className="mb-16"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
         >
-          <h2 className="text-2xl md:text-3xl font-heading text-foreground tracking-wider">
+          <h2 className="text-3xl md:text-4xl font-heading text-foreground tracking-wider">
             Inventory
           </h2>
-          <div className="mt-4 w-8 h-[1px] bg-gold-dim" />
+          <div className="mt-3 w-16 h-[1px] bg-gold mx-auto opacity-50" />
         </motion.div>
 
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-40px" }}
-          className="grid md:grid-cols-2 gap-4"
-        >
+        <div className="grid md:grid-cols-2 gap-4">
           {projects.map((p) => (
             <ProjectCard key={p.id} project={p} onClick={() => setSelected(p)} />
           ))}
-        </motion.div>
+        </div>
       </div>
 
       <AnimatePresence>

@@ -7,38 +7,38 @@
 @layer base {
   :root {
     --background: 0 0% 4.3%;
-    --foreground: 0 0% 90%;
+    --foreground: 0 0% 89.8%;
 
-    --card: 0 0% 8%;
-    --card-foreground: 0 0% 90%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 89.8%;
 
-    --popover: 0 0% 8%;
-    --popover-foreground: 0 0% 90%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 89.8%;
 
-    --primary: 43 50% 50%;
+    --primary: 43 55% 53%;
     --primary-foreground: 0 0% 4.3%;
 
     --secondary: 0 0% 12%;
-    --secondary-foreground: 0 0% 90%;
+    --secondary-foreground: 0 0% 89.8%;
 
-    --muted: 0 0% 14%;
-    --muted-foreground: 0 0% 50%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 55%;
 
-    --accent: 43 50% 50%;
+    --accent: 43 55% 53%;
     --accent-foreground: 0 0% 4.3%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 90%;
+    --destructive-foreground: 0 0% 89.8%;
 
-    --border: 43 12% 18%;
-    --input: 0 0% 14%;
-    --ring: 43 50% 50%;
+    --border: 43 20% 20%;
+    --input: 0 0% 15%;
+    --ring: 43 55% 53%;
 
     --radius: 0.25rem;
 
-    --gold: 43 50% 50%;
-    --gold-dim: 43 25% 32%;
-    --gold-glow: 43 60% 58%;
+    --gold: 43 55% 53%;
+    --gold-dim: 43 30% 35%;
+    --gold-glow: 43 70% 60%;
 
     --font-heading: 'Cinzel', serif;
     --font-body: 'Cormorant Garamond', serif;
@@ -51,16 +51,11 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased;
-    font-family: var(--font-body);
-    font-size: 18px;
-    line-height: 1.7;
+    @apply bg-background text-foreground font-body antialiased;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
-    line-height: 1.2;
-    letter-spacing: 0.04em;
   }
 }
 
@@ -83,31 +78,31 @@
   .bg-gold {
     background-color: hsl(var(--gold));
   }
-  .text-glow-gold {
-    text-shadow: 0 0 30px hsl(var(--gold) / 0.2);
-  }
   .glow-gold {
-    box-shadow: 0 0 12px hsl(var(--gold) / 0.15);
+    box-shadow: 0 0 15px hsl(var(--gold) / 0.3), 0 0 30px hsl(var(--gold) / 0.1);
+  }
+  .text-glow-gold {
+    text-shadow: 0 0 20px hsl(var(--gold) / 0.4);
   }
   .glow-gold-hover {
-    transition: box-shadow 0.4s ease;
+    transition: box-shadow 0.3s ease, filter 0.3s ease;
   }
   .glow-gold-hover:hover {
-    box-shadow: 0 0 16px hsl(var(--gold) / 0.12);
+    box-shadow: 0 0 20px hsl(var(--gold) / 0.4), 0 0 40px hsl(var(--gold) / 0.15);
   }
 }
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
   background: hsl(0 0% 4.3%);
 }
 ::-webkit-scrollbar-thumb {
-  background: hsl(0 0% 18%);
-  border-radius: 2px;
+  background: hsl(43 20% 20%);
+  border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(43 25% 32%);
+  background: hsl(43 55% 53%);
 }

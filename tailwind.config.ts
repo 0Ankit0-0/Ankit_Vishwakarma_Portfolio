@@ -17,11 +17,6 @@ export default {
         heading: ["Cinzel", "serif"],
         body: ["Cormorant Garamond", "serif"],
       },
-      spacing: {
-        // 8px grid helpers
-        "18": "4.5rem",  // 72px
-        "22": "5.5rem",  // 88px
-      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -76,10 +71,20 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "float": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-6px)" },
+        },
+        "flicker": {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.8" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "float": "float 6s ease-in-out infinite",
+        "flicker": "flicker 3s ease-in-out infinite",
       },
     },
   },
