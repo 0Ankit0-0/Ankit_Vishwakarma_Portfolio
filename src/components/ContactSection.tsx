@@ -1,11 +1,10 @@
 import { motion } from "framer-motion";
-import { Mail, Github, Linkedin, Twitter } from "lucide-react";
+import { Mail, Github, Linkedin } from "lucide-react";
 
 const links = [
-  { icon: Mail, label: "Email", href: "mailto:hello@example.com" },
-  { icon: Github, label: "GitHub", href: "https://github.com" },
-  { icon: Linkedin, label: "LinkedIn", href: "https://linkedin.com" },
-  { icon: Twitter, label: "Twitter", href: "https://twitter.com" },
+  { icon: Mail, label: "Email", href: "mailto:ankit.d.vishwakarma@gmail.com" },
+  { icon: Github, label: "GitHub", href: "https://github.com/0Ankit0-0" },
+  { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/ankit-vishwakarma-9540502aa/" },
 ];
 
 const ContactSection = () => {
