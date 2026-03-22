@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import heroBg from "@/assets/hero-bg.jpg";
+import EmberParticles from "@/components/EmberParticles";
 
 const HeroSection = () => {
   return (
@@ -14,6 +15,9 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/60 to-background" />
       </div>
 
+      {/* Floating embers */}
+      <EmberParticles />
+
       {/* Content */}
       <div className="relative z-10 text-center px-4">
         <motion.div
@@ -22,7 +26,7 @@ const HeroSection = () => {
           transition={{ duration: 1.5, ease: "easeOut" }}
         >
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-semibold text-foreground tracking-wider text-glow-gold">
-            Tarnished Dev
+            Ankit Vishwakarma
           </h1>
         </motion.div>
 
@@ -32,7 +36,7 @@ const HeroSection = () => {
           transition={{ duration: 1.2, delay: 0.6 }}
           className="mt-4 text-lg md:text-xl font-heading text-gold tracking-[0.3em] uppercase"
         >
-          Software Developer
+          AI Systems Developer · Full-Stack Engineer
         </motion.p>
 
         <motion.p
@@ -48,8 +52,17 @@ const HeroSection = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 2 }}
-          className="mt-16"
+          className="mt-12 flex flex-col items-center gap-6"
         >
+          <a
+            href="/AnkitVishwakarma_Resume.docx"
+            download
+            className="inline-flex items-center gap-3 px-6 py-3 border border-gold/60 bg-card/50 font-heading text-sm tracking-[0.2em] uppercase text-gold hover:border-gold hover:bg-gold/10 transition-all duration-300 glow-gold-hover rounded-sm"
+          >
+            <span className="text-lg">📜</span>
+            Acquire Résumé
+          </a>
+
           <a
             href="#about"
             className="text-gold-dim hover:text-gold transition-colors font-heading text-sm tracking-[0.4em] uppercase animate-flicker"

@@ -17,45 +17,43 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    name: "Crimson Flask API",
+    name: "Project Quorum",
     rarity: "Legendary",
-    type: "Backend Service",
-    description: "A high-performance REST API built to sustain even the most punishing request loads.",
-    lore: "Forged in the crucible of production traffic, this flask restores vitality to any system that drinks from it.",
-    tech: ["Node.js", "PostgreSQL", "Redis", "Docker"],
-    github: "#",
-    live: "#",
+    type: "AI Threat Detection Tool",
+    description: "A portable, offline AI log analysis tool for air-gapped and critical infrastructure networks with TensorFlow Lite anomaly detection.",
+    lore: "Forged for the Smart India Hackathon — a sentinel that watches over networks no light can reach, detecting threats in silence.",
+    tech: ["Python", "FastAPI", "DuckDB", "TensorFlow Lite", "React", "Tauri"],
+    github: "https://github.com/0Ankit0-0/Project_Quorum",
   },
   {
     id: 2,
-    name: "Moonveil Dashboard",
-    rarity: "Epic",
-    type: "Frontend Application",
-    description: "Real-time analytics dashboard with fluid animations and dark-mode interface.",
-    lore: "A blade of moonlight data, cutting through the fog of uncertainty with each visualization.",
-    tech: ["React", "TypeScript", "D3.js", "Tailwind"],
-    github: "#",
+    name: "Jurix",
+    rarity: "Legendary",
+    type: "AI Legal Simulation",
+    description: "A multi-agent AI legal simulation platform using PyTorch and Ollama LLMs with Prosecutor, Defense, and Judge agents.",
+    lore: "Where justice meets technology — three minds of silicon argue the law, presented before judges at Avishkar 2025.",
+    tech: ["Python", "Flask", "MongoDB", "PyTorch", "Ollama", "React"],
+    github: "https://github.com/0Ankit0-0/Jurix",
   },
   {
     id: 3,
-    name: "Ranni's Neural Net",
-    rarity: "Legendary",
-    type: "AI / ML Pipeline",
-    description: "An ML pipeline for natural language processing with transformer architecture.",
-    lore: "Guided by an unseen hand, this network weaves meaning from the chaos of human language.",
-    tech: ["Python", "PyTorch", "HuggingFace", "FastAPI"],
-    github: "#",
-    live: "#",
+    name: "AccessMap",
+    rarity: "Epic",
+    type: "Accessibility Navigation",
+    description: "A geolocation-based web app for wheelchair-accessible route planning using Leaflet and OpenStreetMap.",
+    lore: "A map that sees what others overlook — charting paths for those who navigate a world not built for them.",
+    tech: ["React", "Node.js", "Leaflet", "OpenStreetMap", "IBM Cloud"],
+    github: "https://github.com/0Ankit0-0/Access-Map0",
   },
   {
     id: 4,
-    name: "Erdtree CLI",
+    name: "Newzzy",
     rarity: "Rare",
-    type: "Developer Tool",
-    description: "A command-line tool for scaffolding and managing microservice architectures.",
-    lore: "From the roots of the Erdtree, new branches of code spring forth with a single command.",
-    tech: ["Rust", "CLI", "TOML", "GitHub Actions"],
-    github: "#",
+    type: "News Aggregator",
+    description: "A modern news aggregation platform delivering curated content with a clean, responsive interface.",
+    lore: "From the chaos of the world's whispers, this artifact distills only what matters.",
+    tech: ["React", "API Integration", "TailwindCSS"],
+    github: "https://github.com/0Ankit0-0/Newzzy",
   },
 ];
 
@@ -149,12 +147,12 @@ const ProjectModal = ({ project, onClose }: { project: Project; onClose: () => v
 
       <div className="flex gap-4">
         {project.github && (
-          <a href={project.github} className="flex items-center gap-2 text-sm font-heading tracking-wider text-muted-foreground hover:text-gold transition-colors">
+          <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-heading tracking-wider text-muted-foreground hover:text-gold transition-colors">
             <Github size={16} /> Source
           </a>
         )}
         {project.live && (
-          <a href={project.live} className="flex items-center gap-2 text-sm font-heading tracking-wider text-muted-foreground hover:text-gold transition-colors">
+          <a href={project.live} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-heading tracking-wider text-muted-foreground hover:text-gold transition-colors">
             <ExternalLink size={16} /> Live
           </a>
         )}
