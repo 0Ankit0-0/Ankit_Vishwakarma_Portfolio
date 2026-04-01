@@ -119,16 +119,46 @@ bun run test:watch
 
 ## 🚀 Deployment
 
-The project can be deployed to any static hosting service:
+The project can be deployed to any static hosting service.
 
-1. **Build**: `bun run build` generates optimized files in `dist/`
-2. **Deploy**: Upload the `dist/` folder to your hosting provider
+### Vercel (Recommended)
 
-### Popular Deployment Options
-- **Vercel** - Zero-config deployment for Vite projects
+1. **Connect Repository**
+   - Push code to GitHub/GitLab/Bitbucket
+   - Visit [vercel.com](https://vercel.com) and sign in
+   - Click "Add New..." → "Project"
+   - Select your repository
+
+2. **Automatic Configuration**
+   - Vercel reads `vercel.json` for build settings
+   - Build Command: `bun run build`
+   - Output Directory: `dist`
+   - Install Command: auto-detected (bun)
+
+3. **Deploy**
+   - Click "Deploy"
+   - Vercel automatically builds and deploys on `git push`
+
+**If deployment fails:**
+- Check Project → Settings → Build & Output
+- Verify Framework Preset is set to "Vite"
+- Ensure Root Directory is correct (should be `/`)
+- Click "Redeploy" after fixing settings
+
+### Other Deployment Options
+
 - **Netlify** - Drag-and-drop or Git integration
 - **GitHub Pages** - Free hosting for static sites
 - **AWS S3 + CloudFront** - Scalable CDN solution
+
+### Manual Deployment
+
+```bash
+# Build for production
+bun run build
+
+# Upload contents of 'dist/' folder to your hosting provider
+```
 
 ## 📝 Configuration Files
 
@@ -171,10 +201,10 @@ This project is open source and available under the MIT License.
 
 **Ankit Vishwakarma**
 
-- Portfolio: [Your Website]
+- Portfolio: (https://ankit-vishwakarma-portfolio-five.vercel.app/)
 - GitHub: [@0Ankit0-0](https://github.com/0Ankit0-0)
-- LinkedIn: [Your LinkedIn]
-- Email: [Your Email]
+- LinkedIn: [@Ankit_Vishwakarma](https://www.linkedin.com/in/ankit-vishwakarma-9540502aa/)
+- Email: ankit.d.vishwakarma@gmail.com
 
 ## ⚡ Quick Start
 
