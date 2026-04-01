@@ -52,12 +52,13 @@ const StatBar = ({ label, sublabel, value, delay }: StatBarProps) => (
 );
 
 const stats = [
-  { label: "Strength", sublabel: "Backend Development", value: 60 },
-  { label: "Intelligence", sublabel: "AI / Machine Learning", value: 55 },
-  { label: "Dexterity", sublabel: "Frontend Development", value: 65 },
-  { label: "Vigor", sublabel: "DevOps & Infrastructure", value: 45 },
-  { label: "Mind", sublabel: "System Architecture", value: 50 },
-  { label: "Faith", sublabel: "Open Source & Community", value: 40 },
+  { label: "Strength", sublabel: "Backend Development", value: 75 },
+  { label: "Intelligence", sublabel: "AI / Machine Learning", value: 80 },
+  { label: "Dexterity", sublabel: "Frontend Development", value: 70 },
+  { label: "Vigor", sublabel: "Cybersecurity & Infrastructure", value: 65 },
+  { label: "Mind", sublabel: "System Architecture", value: 72 },
+  { label: "Faith", sublabel: "Open Source & Community", value: 55 },
+  { label: "Arcane", sublabel: "Legal Tech & NLP", value: 78 },
 ];
 
 const AboutSection = () => {
