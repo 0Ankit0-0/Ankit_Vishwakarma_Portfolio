@@ -94,7 +94,7 @@ const HeroSection = () => {
           <a
             href="/AnkitVishwakarma_Resume.docx"
             download
-            className="group relative inline-flex items-center gap-3 px-8 py-3.5 border border-gold/40 bg-background/40 backdrop-blur-sm font-heading text-sm tracking-[0.2em] uppercase text-gold hover:border-gold/80 transition-all duration-500 rounded-sm overflow-hidden animate-pulse-glow"
+            className="group relative inline-flex items-center gap-3 px-8 py-3.5 border border-gold/40 bg-background/40 backdrop-blur-sm font-heading text-sm tracking-[0.2em] uppercase text-gold hover:border-gold/80 transition-all duration-500 rounded-sm overflow-hidden"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <span className="relative text-lg">📜</span>
