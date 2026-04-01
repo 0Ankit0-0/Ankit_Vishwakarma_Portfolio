@@ -102,18 +102,21 @@ const rarityColor: Record<string, string> = {
   Legendary: "text-gold",
   Epic: "text-foreground",
   Rare: "text-muted-foreground",
+  Common: "text-muted-foreground/70",
 };
 
 const rarityBorder: Record<string, string> = {
   Legendary: "border-gold/40 hover:border-gold/70",
   Epic: "border-gold-dim/30 hover:border-gold-dim/60",
   Rare: "border-gold-dim/20 hover:border-gold-dim/40",
+  Common: "border-gold-dim/10 hover:border-gold-dim/25",
 };
 
 const rarityGlow: Record<string, string> = {
   Legendary: "hover:shadow-[0_0_25px_hsl(43_55%_53%/0.3),0_0_50px_hsl(43_55%_53%/0.1)]",
   Epic: "hover:shadow-[0_0_20px_hsl(43_55%_53%/0.2)]",
   Rare: "hover:shadow-[0_0_15px_hsl(43_55%_53%/0.15)]",
+  Common: "hover:shadow-[0_0_10px_hsl(43_55%_53%/0.1)]",
 };
 
 const ProjectCard = ({ project, onClick }: { project: Project; onClick: () => void }) => (
