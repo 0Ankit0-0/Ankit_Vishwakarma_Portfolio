@@ -60,7 +60,7 @@ const Navbar = () => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 1.5 }}
-        className={`fixed top-0 left-0 right-0 z-40 py-4 px-6 flex justify-between items-center transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-40 py-2.5 sm:py-4 px-3 sm:px-6 flex justify-between items-center transition-all duration-500 ${
           scrolled
             ? "bg-background/80 backdrop-blur-lg border-b border-gold-dim/15 shadow-[0_4px_30px_hsl(0_0%_0%/0.3)]"
             : "bg-transparent border-b border-transparent"
@@ -72,7 +72,7 @@ const Navbar = () => {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
-          className="font-heading text-sm tracking-[0.3em] text-gold uppercase hover:text-glow-gold transition-all duration-300"
+          className="font-heading text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.3em] text-gold uppercase hover:text-glow-gold transition-all duration-300"
         >
           ⚔ AV
         </a>

@@ -70,10 +70,10 @@ const AboutSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <p className="font-heading text-xs tracking-[0.4em] text-gold-dim uppercase mb-3">— Character Sheet —</p>
-          <h2 className="text-3xl md:text-4xl font-heading text-foreground tracking-wider text-glow-gold">
+          <p className="font-heading text-xs tracking-[0.3em] sm:tracking-[0.4em] text-gold-dim uppercase mb-3">— Character Sheet —</p>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading text-foreground tracking-wider text-glow-gold">
             Attributes
           </h2>
           <OrnamentDivider className="mt-4" />
@@ -94,7 +94,7 @@ const AboutSection = () => {
           </div>
         </motion.div>
 
-        <div className="space-y-6 p-6 md:p-8 border border-gold-dim/20 rounded bg-card/30 backdrop-blur-sm">
+        <div className="space-y-4 sm:space-y-6 p-4 sm:p-6 md:p-8 border border-gold-dim/20 rounded bg-card/30 backdrop-blur-sm">
           {stats.map((stat, i) => (
             <StatBar
               key={stat.label}

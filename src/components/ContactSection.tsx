@@ -10,7 +10,7 @@ const links = [
 
 const ContactSection = () => {
   return (
-    <section id="contact" className="relative py-24 md:py-32 px-4">
+    <section id="contact" className="relative py-24 md:py-32 px-3 sm:px-4">
       <div className="max-w-md mx-auto text-center relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -19,7 +19,7 @@ const ContactSection = () => {
           transition={{ duration: 0.8 }}
         >
           <p className="font-heading text-xs tracking-[0.4em] text-gold-dim uppercase mb-3">— Multiplayer —</p>
-          <h2 className="text-3xl md:text-4xl font-heading text-foreground tracking-wider text-glow-gold">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading text-foreground tracking-wider text-glow-gold">
             Summon
           </h2>
           <OrnamentDivider className="mt-4" />
@@ -33,7 +33,7 @@ const ContactSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex justify-center gap-10 mt-14"
+          className="flex justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-10 mt-10 sm:mt-14 flex-wrap"
         >
           {links.map(({ icon: Icon, label, href }) => (
             <a

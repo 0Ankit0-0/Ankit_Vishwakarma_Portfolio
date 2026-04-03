@@ -180,7 +180,46 @@ Update CSS variables in `src/index.css` for custom color schemes.
 ### Components
 Add new components in `src/components/` and import them as needed.
 
-## 📚 Resources
+## � Mobile Responsiveness
+
+The portfolio is fully optimized for mobile devices with:
+
+### Responsive Breakpoints
+- **Mobile (< 640px)**: Single column layouts, optimized spacing
+- **Tablet (640px - 1024px)**: Two-column grids where appropriate
+- **Desktop (> 1024px)**: Full multi-column layouts
+
+### Mobile Optimizations
+- ✅ Touch-friendly button sizes (min 44px)
+- ✅ Optimized font sizes for readability
+- ✅ Reduced decorative elements on small screens
+- ✅ Flexible spacing that scales with screen size
+- ✅ Mobile-first navigation with hamburger menu
+- ✅ Optimized images and assets
+- ✅ Smooth scroll behavior and animations
+- ✅ Prevents horizontal scroll on mobile
+- ✅ iOS input zoom prevention
+- ✅ Reduced motion support for accessibility
+
+### Testing Mobile Responsiveness
+```bash
+# Build and preview on mobile
+bun run build
+bun run preview
+
+# Test with browser DevTools
+# Press F12 → Toggle Device Toolbar (Ctrl+Shift+M)
+# Test at: iPhone SE (375px), iPad (768px), Desktop (1920px)
+```
+
+### Mobile-Friendly Features
+1. **Navbar**: Collapses to hamburger menu on mobile
+2. **Hero Section**: Responsive title sizing (3xl → 8xl)
+3. **Projects Grid**: 1 column on mobile, 2 on tablet+
+4. **Experience Timeline**: Adjusted padding for small screens
+5. **Contact Links**: Wraps and scales on mobile
+
+## �📚 Resources
 
 - [React Documentation](https://react.dev)
 - [TypeScript Documentation](https://www.typescriptlang.org)
@@ -213,7 +252,7 @@ This project is open source and available under the MIT License.
 git clone https://github.com/0Ankit0-0/Ankit_Vishwakarma_Portfolio.git
 
 # Navigate to project
-cd elden-dev-forge
+cd Ankit_Vishwakarma_Portfolio
 
 # Install dependencies
 bun install

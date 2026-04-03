@@ -37,10 +37,10 @@ const ExperienceSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <p className="font-heading text-xs tracking-[0.4em] text-gold-dim uppercase mb-3">— Chronicles —</p>
-          <h2 className="text-3xl md:text-4xl font-heading text-foreground tracking-wider text-glow-gold">
+          <p className="font-heading text-xs tracking-[0.3em] sm:tracking-[0.4em] text-gold-dim uppercase mb-3">— Chronicles —</p>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading text-foreground tracking-wider text-glow-gold">
             Quest Log
           </h2>
           <OrnamentDivider className="mt-4" />
@@ -48,7 +48,7 @@ const ExperienceSection = () => {
 
         <div className="relative">
           {/* Timeline line with glow */}
-          <div className="absolute left-4 md:left-8 top-0 bottom-0 w-[1px]">
+          <div className="absolute left-1.5 sm:left-2 md:left-4 lg:left-8 top-0 bottom-0 w-[1px]">
             <div className="h-full bg-gradient-to-b from-gold/50 via-gold-dim/30 to-transparent" />
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[3px] h-full bg-gradient-to-b from-gold/10 via-gold/5 to-transparent blur-sm" />
           </div>
@@ -60,16 +60,16 @@ const ExperienceSection = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: i * 0.2 }}
-              className="relative pl-12 md:pl-20 mb-12 last:mb-0"
+              className="relative pl-7 sm:pl-12 md:pl-20 mb-8 sm:mb-12 last:mb-0"
             >
               {/* Timeline node with pulse */}
-              <div className="absolute left-2.5 md:left-6.5 top-1">
-                <div className="w-3 h-3 rounded-full border border-gold bg-background relative">
+              <div className="absolute left-1 sm:left-2 md:left-6.5 top-1">
+                <div className="w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full border border-gold bg-background relative">
                   <div className="absolute inset-0 rounded-full animate-pulse-glow" />
                 </div>
               </div>
 
-              <div className="border border-gold-dim/30 bg-card/60 backdrop-blur-sm p-6 md:p-8 rounded transition-all duration-300 glow-gold-hover group hover:border-gold-dim/50">
+              <div className="border border-gold-dim/30 bg-card/60 backdrop-blur-sm p-4 sm:p-6 md:p-8 rounded transition-all duration-300 glow-gold-hover group hover:border-gold-dim/50">
                 {/* Status banner */}
                 <div className="flex items-center gap-2 mb-4 px-3 py-1.5 bg-gold/5 border border-gold-dim/20 rounded-sm w-fit">
                   <CheckCircle2 size={12} className="text-gold" />

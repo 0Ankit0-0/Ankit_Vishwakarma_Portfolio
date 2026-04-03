@@ -128,13 +128,13 @@ const ProjectCard = ({ project, onClick }: { project: Project; onClick: () => vo
     whileHover={{ scale: 1.02, y: -4 }}
     whileTap={{ scale: 0.99 }}
     onClick={onClick}
-    className={`w-full text-left border bg-card/60 backdrop-blur-sm p-6 rounded transition-all duration-500 group relative overflow-hidden ${rarityBorder[project.rarity]} ${rarityGlow[project.rarity]}`}
+    className={`w-full text-left border bg-card/60 backdrop-blur-sm p-4 sm:p-6 rounded transition-all duration-500 group relative overflow-hidden ${rarityBorder[project.rarity]} ${rarityGlow[project.rarity]}`}
   >
     {/* Subtle top accent line */}
     <div className={`absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent ${project.rarity === "Legendary" ? "via-gold/50" : project.rarity === "Epic" ? "via-gold-dim/40" : "via-gold-dim/20"} to-transparent`} />
 
-    <div className="flex justify-between items-start mb-2">
-      <h3 className="font-heading text-lg text-foreground group-hover:text-gold transition-colors duration-300 tracking-wide">
+    <div className="flex justify-between items-start mb-2 gap-2">
+      <h3 className="font-heading text-base sm:text-lg text-foreground group-hover:text-gold transition-colors duration-300 tracking-wide">
         {project.name}
       </h3>
       <span className={`font-heading text-[10px] tracking-[0.2em] uppercase px-2 py-0.5 border rounded-sm ${
@@ -250,16 +250,16 @@ const ProjectsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <p className="font-heading text-xs tracking-[0.4em] text-gold-dim uppercase mb-3">— Armaments —</p>
-          <h2 className="text-3xl md:text-4xl font-heading text-foreground tracking-wider text-glow-gold">
+          <p className="font-heading text-xs tracking-[0.3em] sm:tracking-[0.4em] text-gold-dim uppercase mb-3">— Armaments —</p>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-heading text-foreground tracking-wider text-glow-gold">
             Inventory
           </h2>
           <OrnamentDivider className="mt-4" />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
           {projects.map((p) => (
             <ProjectCard key={p.id} project={p} onClick={() => setSelected(p)} />
           ))}
