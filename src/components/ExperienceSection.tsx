@@ -13,7 +13,7 @@ interface Quest {
 
 const quests: Quest[] = [
   {
-    title: "Product Developer & Analytics",
+    title: "Software Engineer intern",
     organization: "NSTechX (Fintech Startup)",
     period: "Nov 2025 – Feb 2026",
     status: "completed",
