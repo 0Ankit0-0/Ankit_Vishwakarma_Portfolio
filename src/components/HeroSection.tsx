@@ -73,7 +73,7 @@ const HeroSection = () => {
           transition={{ duration: 1.2, delay: 0.8 }}
           className="mt-6 text-xs sm:text-sm md:text-base lg:text-lg font-heading text-gold/80 tracking-[0.15em] sm:tracking-[0.2em] md:tracking-[0.3em] uppercase"
         >
-          AI Systems Developer · Full-Stack Engineer
+          AI Systems Developer · Full-Stack Engineer . Software Engineer 
         </motion.p>
 
         <motion.p
